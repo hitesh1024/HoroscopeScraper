@@ -66,9 +66,9 @@ class Horoscope:
             r = requests.get(self.URL_HOROSCOPE)
             self.Session = BeautifulSoup(r.content, 'html5lib')
 
-        self.Matches['Love'] = self.Session.find(id='src-horo-matchlove').p.text.lower()
-        self.Matches['Friendship'] = self.Session.find(id='src-horo-matchfriend').p.text.lower()
-        self.Matches['Career'] = self.Session.find(id='src-horo-matchcareer').p.text.lower()
+        self.Matches['Love'] = self.Session.find(id='src-horo-matchlove').p.text
+        self.Matches['Friendship'] = self.Session.find(id='src-horo-matchfriend').p.text
+        self.Matches['Career'] = self.Session.find(id='src-horo-matchcareer').p.text
         # print(self.Matches)
 
         return self.Matches
