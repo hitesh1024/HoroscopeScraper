@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-LIST_SIGN = ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn',
-             'aquarius', 'pisces']
+LIST_SIGN = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn',
+             'Aquarius', 'Pisces']
 
 
 class Horoscope:
