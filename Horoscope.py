@@ -80,7 +80,7 @@ class Horoscope:
         self.sign = p
         # print(self.sign)
 
-        if 0 < (datetime.now() - timedelta(hours = 12)).hour < 12:
+        if 0 < (datetime.utcnow() - timedelta(hours = 12)).hour < 12:
             self.URL_HOROSCOPE = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-tomorrow.aspx?sign={self.id}'
             self.URL_STAR_RATING = f'https://www.horoscope.com/star-ratings/tomorrow/{self.sign}'
         else:
