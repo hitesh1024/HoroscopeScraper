@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
 LIST_SIGN = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn',
@@ -75,10 +76,16 @@ class Horoscope:
 
     def __init__(self, p):
         self.id = LIST_SIGN.index(p) + 1
-        print(self.id)
+        # print(self.id)
         self.sign = p
-        print(self.sign)
-        self.URL_HOROSCOPE = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={self.id}'
-        self.URL_STAR_RATING = f'https://www.horoscope.com/star-ratings/today/{self.sign}'
+        # print(self.sign)
+
+        if 0 < (datetime.now() - timedelta(hours = 12)).hour < 12:
+            self.URL_HOROSCOPE = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-tomorrow.aspx?sign={self.id}'
+            self.URL_STAR_RATING = f'https://www.horoscope.com/star-ratings/tomorrow/{self.sign}'
+        else:
+            self.URL_HOROSCOPE = f'https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={self.id}'
+            self.URL_STAR_RATING = f'https://www.horoscope.com/star-ratings/today/{self.sign}'
+
         print(self.URL_HOROSCOPE)
-        print(self.URL_STAR_RATING)
+        # print(self.URL_STAR_RATING)
